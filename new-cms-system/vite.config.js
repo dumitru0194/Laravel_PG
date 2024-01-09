@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/bootstrap.js',
                 'resources/css/app.css',
+                'public/css/sb-admin-2.css',
             ],
             refresh: true,
         }),

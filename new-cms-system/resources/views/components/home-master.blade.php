@@ -24,7 +24,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="{{route('home')}}">HOME</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -38,6 +38,18 @@
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li>
+          @if(Auth::check())
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.index')}}">Admin</a>
+          </li>
+          @else
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+          @endif
           <li class="nav-item">
             <a class="nav-link" href="#">Services</a>
           </li>
