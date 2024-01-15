@@ -12,8 +12,12 @@
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/bootstrap.js', 'resources/sass/app.scss'])
-
+     @vite([
+    'resources/sass/app.scss',
+    'resources/js/app.js',
+    'resources/js/bootstrap.js',
+    'resources/css/app.css',
+    'public/css/sb-admin-2.css',])
   <!-- Custom styles for this template -->
   <link href="css/blog-home.css" rel="stylesheet">
 
