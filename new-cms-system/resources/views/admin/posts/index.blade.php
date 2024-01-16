@@ -14,10 +14,11 @@
 
     {{--Uploading assest created by Vite assest complier--}}
     @vite([
-    'public/vendor/datatables/jquery.dataTables.min.js',
-    'public/vendor/datatables/dataTables.bootstrap4.min.js',
-    'public/vendor/demo/datatables-demo.js',
-    'public/vendor/jquery-easing/jquery.easing.min.js',])
+    '/public/vendor/datatables/jquery.dataTables.min.js',
+    '/public/vendor/datatables/dataTables.bootstrap4.min.js',
+    '/public/vendor/demo/datatables-demo.js',
+    '/public/vendor/jquery-easing/jquery.easing.min.js',
+    '/resources/css/sb-admin-2.css',])
 
 
     <div class="card shadow mb-4">
@@ -76,6 +77,16 @@
           </div>
         </div>
       </div>
-
+      {{$posts->links()}}
     @endsection
+
+    @section('scripts')
+    <!-- Page level plugins -->
+        <script src="/public/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="/public/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page level custom scripts -->
+           <script src="public/vendor/demo/datatables-demo.js"></script>
+    @endsection
+
 </x-admin-master>
