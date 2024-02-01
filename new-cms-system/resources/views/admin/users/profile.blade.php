@@ -122,16 +122,33 @@
                         <tbody>
                           @foreach($roles as $role)
                             <tr>
-                              <td><h1>
-                                
-                                    @dump($user->id)
+                              <td>
+                                <input type="checkbox"
+                                @foreach($user->roles as $user_role)
 
-                              </h1> 
+                                  @if($user_role->slug == $role->slug)
+                                    checked
+                                  @endif
+
+                                @endforeach
+                                >
                               </td>
                               <td>{{$role->id}}</td>
                               <td>{{$role->name}}</td>
                               <td>{{$role->slug}}</td>
-                              <td><button class="btn btn-primary">Attach</button></td>
+                              <td>
+                                
+                                <form method="post" action="{{route('user.role.attach', $role->id)}}">
+                                  @method('PUT')
+                                  @csrf
+                                
+                                
+                                
+                                  <button class="btn btn-primary">Attach</button>
+                              
+                                 </form>
+                              
+                              </td>
                               <td><button class="btn btn-danger">De-Attach</button></td>
                             </tr>
                           @endforeach
