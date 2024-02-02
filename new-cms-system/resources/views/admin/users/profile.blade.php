@@ -138,18 +138,35 @@
                               <td>{{$role->slug}}</td>
                               <td>
                                 
-                                <form method="post" action="{{route('user.role.attach', $role->id)}}">
+                                <form method="post" action="{{route('user.role.attach', $user)}}">
                                   @method('PUT')
                                   @csrf
-                                
-                                
-                                
-                                  <button class="btn btn-primary">Attach</button>
-                              
+                                  <input type="hidden"  name="role" value="{{$role->id}}">
+                                  <button type="submit" class="btn btn-primary"
+                                      @if($user->roles->contains($role))
+                                      @disabled(true)
+                                      @endif
+                                  >Attach</button>
                                  </form>
                               
                               </td>
-                              <td><button class="btn btn-danger">De-Attach</button></td>
+                              <td>
+                                
+
+                                                                
+                                <form method="post" action="{{route('user.role.detach', $user)}}">
+                                  @method('PUT')
+                                  @csrf
+                                  <input type="hidden"  name="role" value="{{$role->id}}">
+                                  <button class="btn btn-danger"
+                                  @if(!$user->roles->contains($role))
+                                  @disabled(true)
+                                  @endif
+                                  
+                                  
+                                  >De-Attach</button>
+                                 </form>
+                              </td>
                             </tr>
                           @endforeach
                         </tbody>

@@ -18,7 +18,10 @@ Route::middleware('auth')->group(function () {
 Route::middleware('role:admin', 'auth')->group(function(){
 
     Route::get('/users',  [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
-    Route::put('/users/{role}/attach', [App\Http\Controllers\UserController::class, 'attach'])->name('user.role.attach');
+
+    Route::put('/users/{user}/attach', [App\Http\Controllers\UserController::class, 'attach_role'])->name('user.role.attach');
+
+    Route::put('/users/{user}/detach', [App\Http\Controllers\UserController::class, 'detach_role'])->name('user.role.detach');
 
 });
 
